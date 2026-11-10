@@ -1,0 +1,282 @@
+Tue Nov 10 17:47:47 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.196.07             Driver Version: 580.196.07     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:D8:00.0 Off |                    0 |
+| N/A   28C    P0             26W /  250W |       0MiB /  32768MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== drive_unet_bce: dataset=drive model=unet loss=bce device=cuda size=512 epochs=100 ===
+data folder: /dtu/datasets1/02516/DRIVE/training
+split sizes: 12/4/4 | test ids: [21, 24, 28, 29]
+foreground fraction in FOV: 0.125 | pos_weight: 7.0
+parameters: 1944049
+ep   1 | loss tr 0.6093 va 0.6071 te 0.6108 | acc tr 0.8754 va 0.8817 te 0.8652 | dice tr 0.000 va 0.000 te 0.000 | 14s
+ep   5 | loss tr 0.4758 va 0.4548 te 0.4744 | acc tr 0.8700 va 0.8780 te 0.8605 | dice tr 0.001 va 0.000 te 0.001 | 16s
+ep  10 | loss tr 0.3275 va 0.3019 te 0.3381 | acc tr 0.8749 va 0.8811 te 0.8643 | dice tr 0.001 va 0.000 te 0.001 | 17s
+ep  15 | loss tr 0.2805 va 0.2637 te 0.2840 | acc tr 0.9116 va 0.9211 te 0.9133 | dice tr 0.508 va 0.567 te 0.565 | 19s
+ep  20 | loss tr 0.2502 va 0.2333 te 0.2506 | acc tr 0.9272 va 0.9332 te 0.9261 | dice tr 0.662 va 0.670 te 0.689 | 20s
+ep  25 | loss tr 0.2278 va 0.2202 te 0.2251 | acc tr 0.9297 va 0.9356 te 0.9305 | dice tr 0.656 va 0.676 te 0.687 | 22s
+ep  30 | loss tr 0.2100 va 0.2020 te 0.2167 | acc tr 0.9334 va 0.9380 te 0.9302 | dice tr 0.681 va 0.689 te 0.694 | 23s
+ep  35 | loss tr 0.2007 va 0.1967 te 0.2039 | acc tr 0.9371 va 0.9402 te 0.9359 | dice tr 0.725 va 0.728 te 0.743 | 25s
+ep  40 | loss tr 0.1876 va 0.1885 te 0.1889 | acc tr 0.9388 va 0.9411 te 0.9384 | dice tr 0.731 va 0.733 te 0.750 | 26s
+ep  45 | loss tr 0.1816 va 0.1744 te 0.1875 | acc tr 0.9398 va 0.9440 te 0.9364 | dice tr 0.729 va 0.733 te 0.736 | 28s
+ep  50 | loss tr 0.1765 va 0.1720 te 0.1828 | acc tr 0.9402 va 0.9439 te 0.9365 | dice tr 0.745 va 0.747 te 0.747 | 29s
+ep  55 | loss tr 0.1679 va 0.1620 te 0.1684 | acc tr 0.9416 va 0.9457 te 0.9413 | dice tr 0.736 va 0.744 te 0.754 | 31s
+ep  60 | loss tr 0.1668 va 0.1596 te 0.1718 | acc tr 0.9411 va 0.9460 te 0.9387 | dice tr 0.737 va 0.744 te 0.745 | 32s
+ep  65 | loss tr 0.1589 va 0.1503 te 0.1603 | acc tr 0.9433 va 0.9482 te 0.9423 | dice tr 0.749 va 0.758 te 0.763 | 34s
+ep  70 | loss tr 0.1564 va 0.1484 te 0.1599 | acc tr 0.9435 va 0.9478 te 0.9417 | dice tr 0.748 va 0.755 te 0.757 | 35s
+ep  75 | loss tr 0.1528 va 0.1516 te 0.1584 | acc tr 0.9448 va 0.9465 te 0.9422 | dice tr 0.764 va 0.762 te 0.771 | 37s
+ep  80 | loss tr 0.1484 va 0.1459 te 0.1540 | acc tr 0.9457 va 0.9477 te 0.9428 | dice tr 0.762 va 0.759 te 0.766 | 38s
+ep  85 | loss tr 0.1479 va 0.1403 te 0.1529 | acc tr 0.9457 va 0.9497 te 0.9431 | dice tr 0.759 va 0.763 te 0.765 | 40s
+ep  90 | loss tr 0.1463 va 0.1443 te 0.1482 | acc tr 0.9453 va 0.9462 te 0.9445 | dice tr 0.777 va 0.772 te 0.790 | 41s
+ep  95 | loss tr 0.1401 va 0.1369 te 0.1450 | acc tr 0.9472 va 0.9501 te 0.9453 | dice tr 0.772 va 0.772 te 0.781 | 43s
+ep 100 | loss tr 0.1433 va 0.1390 te 0.1450 | acc tr 0.9468 va 0.9498 te 0.9455 | dice tr 0.778 va 0.778 te 0.785 | 44s
+best val dice 0.7876 at epoch 96 (weights restored)
+train dice 0.7804 | iou 0.6399 | acc 0.9473 | sens 0.7509 | spec 0.9753 | loss 0.1388
+val   dice 0.7876 | iou 0.6496 | acc 0.9518 | sens 0.7563 | spec 0.9780 | loss 0.1296
+test  dice 0.7905 | iou 0.6536 | acc 0.9456 | sens 0.7616 | spec 0.9742 | loss 0.1432
+saved to results/drive_unet_bce
+=== drive_unet_focal: dataset=drive model=unet loss=focal device=cuda size=512 epochs=100 ===
+data folder: /dtu/datasets1/02516/DRIVE/training
+split sizes: 12/4/4 | test ids: [21, 24, 28, 29]
+foreground fraction in FOV: 0.125 | pos_weight: 7.0
+parameters: 1944049
+ep   1 | loss tr 0.0487 va 0.0477 te 0.0503 | acc tr 0.8754 va 0.8817 te 0.8652 | dice tr 0.000 va 0.000 te 0.000 | 1s
+ep   5 | loss tr 0.0496 va 0.0476 te 0.0519 | acc tr 0.8754 va 0.8817 te 0.8652 | dice tr 0.000 va 0.000 te 0.000 | 3s
+ep  10 | loss tr 0.0513 va 0.0443 te 0.0473 | acc tr 0.8842 va 0.8955 te 0.8844 | dice tr 0.179 va 0.250 te 0.282 | 4s
+ep  15 | loss tr 0.0290 va 0.0250 te 0.0261 | acc tr 0.9282 va 0.9351 te 0.9345 | dice tr 0.666 va 0.703 te 0.732 | 6s
+ep  20 | loss tr 0.0230 va 0.0236 te 0.0229 | acc tr 0.9160 va 0.9024 te 0.9174 | dice tr 0.699 va 0.667 te 0.728 | 7s
+ep  25 | loss tr 0.0215 va 0.0211 te 0.0222 | acc tr 0.9263 va 0.9211 te 0.9286 | dice tr 0.725 va 0.704 te 0.747 | 9s
+ep  30 | loss tr 0.0210 va 0.0208 te 0.0228 | acc tr 0.9256 va 0.9231 te 0.9168 | dice tr 0.727 va 0.709 te 0.721 | 10s
+ep  35 | loss tr 0.0201 va 0.0196 te 0.0215 | acc tr 0.9286 va 0.9285 te 0.9252 | dice tr 0.737 va 0.726 te 0.743 | 12s
+ep  40 | loss tr 0.0197 va 0.0186 te 0.0218 | acc tr 0.9313 va 0.9390 te 0.9289 | dice tr 0.744 va 0.754 te 0.751 | 13s
+ep  45 | loss tr 0.0189 va 0.0192 te 0.0203 | acc tr 0.9280 va 0.9222 te 0.9272 | dice tr 0.743 va 0.718 te 0.753 | 15s
+ep  50 | loss tr 0.0185 va 0.0182 te 0.0193 | acc tr 0.9276 va 0.9244 te 0.9326 | dice tr 0.743 va 0.725 te 0.770 | 16s
+ep  55 | loss tr 0.0180 va 0.0178 te 0.0193 | acc tr 0.9335 va 0.9352 te 0.9338 | dice tr 0.757 va 0.750 te 0.771 | 18s
+ep  60 | loss tr 0.0179 va 0.0174 te 0.0190 | acc tr 0.9281 va 0.9304 te 0.9303 | dice tr 0.747 va 0.742 te 0.765 | 19s
+ep  65 | loss tr 0.0173 va 0.0168 te 0.0184 | acc tr 0.9336 va 0.9334 te 0.9344 | dice tr 0.761 va 0.751 te 0.777 | 21s
+ep  70 | loss tr 0.0173 va 0.0172 te 0.0191 | acc tr 0.9380 va 0.9362 te 0.9380 | dice tr 0.768 va 0.753 te 0.780 | 22s
+ep  75 | loss tr 0.0167 va 0.0168 te 0.0181 | acc tr 0.9351 va 0.9329 te 0.9351 | dice tr 0.766 va 0.752 te 0.779 | 24s
+ep  80 | loss tr 0.0166 va 0.0167 te 0.0189 | acc tr 0.9386 va 0.9383 te 0.9390 | dice tr 0.774 va 0.760 te 0.784 | 25s
+ep  85 | loss tr 0.0165 va 0.0166 te 0.0182 | acc tr 0.9377 va 0.9364 te 0.9376 | dice tr 0.773 va 0.758 te 0.783 | 26s
+ep  90 | loss tr 0.0161 va 0.0161 te 0.0185 | acc tr 0.9419 va 0.9467 te 0.9411 | dice tr 0.783 va 0.784 te 0.790 | 28s
+ep  95 | loss tr 0.0157 va 0.0164 te 0.0178 | acc tr 0.9300 va 0.9316 te 0.9303 | dice tr 0.761 va 0.751 te 0.771 | 29s
+ep 100 | loss tr 0.0169 va 0.0171 te 0.0182 | acc tr 0.9197 va 0.9184 te 0.9251 | dice tr 0.738 va 0.721 te 0.761 | 31s
+best val dice 0.7844 at epoch 90 (weights restored)
+train dice 0.7826 | iou 0.6428 | acc 0.9419 | sens 0.8382 | spec 0.9567 | loss 0.0161
+val   dice 0.7844 | iou 0.6453 | acc 0.9467 | sens 0.8193 | spec 0.9638 | loss 0.0161
+test  dice 0.7901 | iou 0.6530 | acc 0.9411 | sens 0.8225 | spec 0.9595 | loss 0.0185
+saved to results/drive_unet_focal
+=== ph2_unet_bce: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+foreground fraction in FOV: 0.324 | pos_weight: 2.1
+parameters: 1944049
+ep   1 | loss tr 0.3090 va 0.3020 te 0.3290 | acc tr 0.8705 va 0.8757 te 0.8624 | dice tr 0.799 va 0.823 te 0.726 | 1s
+ep   5 | loss tr 0.2333 va 0.2275 te 0.2526 | acc tr 0.9064 va 0.9113 te 0.8873 | dice tr 0.847 va 0.868 te 0.772 | 5s
+ep  10 | loss tr 0.2176 va 0.2044 te 0.2511 | acc tr 0.9058 va 0.9181 te 0.8970 | dice tr 0.853 va 0.884 te 0.804 | 10s
+ep  15 | loss tr 0.2472 va 0.2489 te 0.2497 | acc tr 0.9026 va 0.9001 te 0.8977 | dice tr 0.861 va 0.870 te 0.826 | 15s
+ep  20 | loss tr 0.1858 va 0.1726 te 0.2170 | acc tr 0.9330 va 0.9397 te 0.9140 | dice tr 0.897 va 0.915 te 0.846 | 19s
+ep  25 | loss tr 0.1880 va 0.1764 te 0.1766 | acc tr 0.9221 va 0.9271 te 0.9258 | dice tr 0.883 va 0.901 te 0.869 | 24s
+ep  30 | loss tr 0.1428 va 0.1628 te 0.1768 | acc tr 0.9474 va 0.9390 te 0.9289 | dice tr 0.919 va 0.914 te 0.878 | 29s
+ep  35 | loss tr 0.1549 va 0.1694 te 0.1824 | acc tr 0.9409 va 0.9331 te 0.9278 | dice tr 0.902 va 0.898 te 0.863 | 33s
+ep  40 | loss tr 0.1533 va 0.1710 te 0.1749 | acc tr 0.9413 va 0.9318 te 0.9329 | dice tr 0.903 va 0.898 te 0.875 | 38s
+ep  45 | loss tr 0.1343 va 0.1409 te 0.2038 | acc tr 0.9490 va 0.9489 te 0.9232 | dice tr 0.920 va 0.926 te 0.859 | 43s
+ep  50 | loss tr 0.1128 va 0.1401 te 0.1741 | acc tr 0.9560 va 0.9476 te 0.9293 | dice tr 0.931 va 0.924 te 0.870 | 47s
+ep  55 | loss tr 0.1091 va 0.1147 te 0.1611 | acc tr 0.9580 va 0.9587 te 0.9379 | dice tr 0.934 va 0.940 te 0.887 | 52s
+ep  60 | loss tr 0.1014 va 0.1268 te 0.1583 | acc tr 0.9603 va 0.9501 te 0.9361 | dice tr 0.937 va 0.927 te 0.886 | 56s
+ep  65 | loss tr 0.0961 va 0.1088 te 0.1552 | acc tr 0.9625 va 0.9600 te 0.9386 | dice tr 0.941 va 0.942 te 0.888 | 61s
+ep  70 | loss tr 0.1036 va 0.1231 te 0.1546 | acc tr 0.9596 va 0.9555 te 0.9367 | dice tr 0.937 va 0.937 te 0.888 | 66s
+ep  75 | loss tr 0.0921 va 0.1009 te 0.1407 | acc tr 0.9640 va 0.9616 te 0.9441 | dice tr 0.944 va 0.945 te 0.900 | 70s
+ep  80 | loss tr 0.0874 va 0.1002 te 0.1611 | acc tr 0.9657 va 0.9612 te 0.9338 | dice tr 0.948 va 0.946 te 0.888 | 75s
+ep  85 | loss tr 0.0848 va 0.0907 te 0.1342 | acc tr 0.9664 va 0.9649 te 0.9460 | dice tr 0.948 va 0.950 te 0.906 | 80s
+ep  90 | loss tr 0.0769 va 0.0879 te 0.1381 | acc tr 0.9684 va 0.9644 te 0.9443 | dice tr 0.951 va 0.950 te 0.904 | 84s
+ep  95 | loss tr 0.0708 va 0.0826 te 0.1238 | acc tr 0.9711 va 0.9678 te 0.9488 | dice tr 0.955 va 0.954 te 0.911 | 89s
+ep 100 | loss tr 0.0852 va 0.1149 te 0.1357 | acc tr 0.9668 va 0.9548 te 0.9475 | dice tr 0.948 va 0.936 te 0.907 | 94s
+best val dice 0.9582 at epoch 93 (weights restored)
+train dice 0.9524 | iou 0.9091 | acc 0.9687 | sens 0.9653 | spec 0.9704 | loss 0.0755
+val   dice 0.9582 | iou 0.9197 | acc 0.9703 | sens 0.9649 | spec 0.9732 | loss 0.0821
+test  dice 0.9069 | iou 0.8297 | acc 0.9459 | sens 0.9195 | spec 0.9564 | loss 0.1282
+saved to results/ph2_unet_bce
+=== ph2_unet_focal: dataset=ph2 model=unet loss=focal device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+foreground fraction in FOV: 0.324 | pos_weight: 2.1
+parameters: 1944049
+ep   1 | loss tr 0.0399 va 0.0375 te 0.0382 | acc tr 0.8385 va 0.8621 te 0.8656 | dice tr 0.767 va 0.813 te 0.770 | 1s
+ep   5 | loss tr 0.0269 va 0.0250 te 0.0315 | acc tr 0.9027 va 0.9065 te 0.9022 | dice tr 0.854 va 0.872 te 0.821 | 5s
+ep  10 | loss tr 0.0251 va 0.0235 te 0.0275 | acc tr 0.8716 va 0.8746 te 0.8922 | dice tr 0.826 va 0.845 te 0.827 | 10s
+ep  15 | loss tr 0.0278 va 0.0264 te 0.0297 | acc tr 0.8872 va 0.8970 te 0.9081 | dice tr 0.841 va 0.865 te 0.842 | 15s
+ep  20 | loss tr 0.0265 va 0.0250 te 0.0269 | acc tr 0.8608 va 0.8749 te 0.8820 | dice tr 0.818 va 0.847 te 0.823 | 19s
+ep  25 | loss tr 0.0205 va 0.0192 te 0.0234 | acc tr 0.9344 va 0.9453 te 0.9251 | dice tr 0.901 va 0.924 te 0.873 | 24s
+ep  30 | loss tr 0.0233 va 0.0207 te 0.0259 | acc tr 0.9051 va 0.9200 te 0.9076 | dice tr 0.864 va 0.893 te 0.846 | 29s
+ep  35 | loss tr 0.0185 va 0.0171 te 0.0216 | acc tr 0.9171 va 0.9221 te 0.8991 | dice tr 0.883 va 0.898 te 0.845 | 34s
+ep  40 | loss tr 0.0178 va 0.0165 te 0.0227 | acc tr 0.9304 va 0.9352 te 0.9172 | dice tr 0.898 va 0.914 te 0.866 | 38s
+ep  45 | loss tr 0.0175 va 0.0193 te 0.0218 | acc tr 0.9309 va 0.9303 te 0.9165 | dice tr 0.900 va 0.907 te 0.865 | 43s
+ep  50 | loss tr 0.0171 va 0.0170 te 0.0268 | acc tr 0.9513 va 0.9522 te 0.9324 | dice tr 0.924 va 0.933 te 0.877 | 48s
+ep  55 | loss tr 0.0182 va 0.0187 te 0.0302 | acc tr 0.9508 va 0.9538 te 0.9309 | dice tr 0.922 va 0.932 te 0.872 | 53s
+ep  60 | loss tr 0.0168 va 0.0153 te 0.0222 | acc tr 0.9451 va 0.9515 te 0.9260 | dice tr 0.917 va 0.933 te 0.876 | 57s
+ep  65 | loss tr 0.0130 va 0.0123 te 0.0168 | acc tr 0.9505 va 0.9589 te 0.9395 | dice tr 0.927 va 0.943 te 0.898 | 62s
+ep  70 | loss tr 0.0154 va 0.0179 te 0.0228 | acc tr 0.9448 va 0.9371 te 0.9300 | dice tr 0.919 va 0.916 te 0.882 | 67s
+ep  75 | loss tr 0.0149 va 0.0155 te 0.0279 | acc tr 0.9522 va 0.9574 te 0.9315 | dice tr 0.927 va 0.940 te 0.878 | 72s
+ep  80 | loss tr 0.0119 va 0.0150 te 0.0179 | acc tr 0.9439 va 0.9313 te 0.9206 | dice tr 0.919 va 0.910 te 0.873 | 76s
+ep  85 | loss tr 0.0126 va 0.0131 te 0.0168 | acc tr 0.9427 va 0.9465 te 0.9294 | dice tr 0.917 va 0.928 te 0.886 | 81s
+ep  90 | loss tr 0.0121 va 0.0125 te 0.0168 | acc tr 0.9519 va 0.9483 te 0.9300 | dice tr 0.929 va 0.930 te 0.885 | 86s
+ep  95 | loss tr 0.0111 va 0.0130 te 0.0161 | acc tr 0.9475 va 0.9330 te 0.9192 | dice tr 0.924 va 0.912 te 0.872 | 91s
+ep 100 | loss tr 0.0111 va 0.0143 te 0.0155 | acc tr 0.9520 va 0.9417 te 0.9276 | dice tr 0.929 va 0.922 te 0.883 | 95s
+best val dice 0.9443 at epoch 78 (weights restored)
+train dice 0.9362 | iou 0.8800 | acc 0.9581 | sens 0.9491 | spec 0.9624 | loss 0.0135
+val   dice 0.9443 | iou 0.8945 | acc 0.9600 | sens 0.9611 | spec 0.9593 | loss 0.0129
+test  dice 0.8814 | iou 0.7879 | acc 0.9306 | sens 0.8994 | spec 0.9431 | loss 0.0225
+saved to results/ph2_unet_focal
+### test
+
+| experiment | dataset | model | loss | best epoch | dice | iou | acc | sens | spec |
+|---|---|---|---|---|---|---|---|---|---|
+| drive_cnn | drive | cnn | wbce | 77 | 0.7419 | 0.5898 | 0.9197 | 0.8557 | 0.9297 |
+| drive_unet | drive | unet | wbce | 91 | 0.7584 | 0.6109 | 0.9227 | 0.9004 | 0.9261 |
+| drive_unet_bce | drive | unet | bce | 96 | 0.7905 | 0.6536 | 0.9456 | 0.7616 | 0.9742 |
+| drive_unet_focal | drive | unet | focal | 90 | 0.7901 | 0.6530 | 0.9411 | 0.8225 | 0.9595 |
+| ph2_cnn | ph2 | cnn | wbce | 100 | 0.9012 | 0.8202 | 0.9415 | 0.9299 | 0.9462 |
+| ph2_unet | ph2 | unet | wbce | 79 | 0.8924 | 0.8057 | 0.9390 | 0.8821 | 0.9619 |
+| ph2_unet_bce | ph2 | unet | bce | 93 | 0.9069 | 0.8297 | 0.9459 | 0.9195 | 0.9564 |
+| ph2_unet_focal | ph2 | unet | focal | 78 | 0.8814 | 0.7879 | 0.9306 | 0.8994 | 0.9431 |
+
+### val
+
+| experiment | dataset | model | loss | best epoch | dice | iou | acc | sens | spec |
+|---|---|---|---|---|---|---|---|---|---|
+| drive_cnn | drive | cnn | wbce | 77 | 0.7125 | 0.5533 | 0.9173 | 0.8665 | 0.9241 |
+| drive_unet | drive | unet | wbce | 91 | 0.7347 | 0.5806 | 0.9221 | 0.9115 | 0.9236 |
+| drive_unet_bce | drive | unet | bce | 96 | 0.7876 | 0.6496 | 0.9518 | 0.7563 | 0.9780 |
+| drive_unet_focal | drive | unet | focal | 90 | 0.7844 | 0.6453 | 0.9467 | 0.8193 | 0.9638 |
+| ph2_cnn | ph2 | cnn | wbce | 100 | 0.9459 | 0.8974 | 0.9611 | 0.9638 | 0.9596 |
+| ph2_unet | ph2 | unet | wbce | 79 | 0.9525 | 0.9094 | 0.9666 | 0.9491 | 0.9762 |
+| ph2_unet_bce | ph2 | unet | bce | 93 | 0.9582 | 0.9197 | 0.9703 | 0.9649 | 0.9732 |
+| ph2_unet_focal | ph2 | unet | focal | 78 | 0.9443 | 0.8945 | 0.9600 | 0.9611 | 0.9593 |
+
+### train
+
+| experiment | dataset | model | loss | best epoch | dice | iou | acc | sens | spec |
+|---|---|---|---|---|---|---|---|---|---|
+| drive_cnn | drive | cnn | wbce | 77 | 0.7452 | 0.5939 | 0.9232 | 0.9011 | 0.9263 |
+| drive_unet | drive | unet | wbce | 91 | 0.7443 | 0.5927 | 0.9211 | 0.9219 | 0.9209 |
+| drive_unet_bce | drive | unet | bce | 96 | 0.7804 | 0.6399 | 0.9473 | 0.7509 | 0.9753 |
+| drive_unet_focal | drive | unet | focal | 90 | 0.7826 | 0.6428 | 0.9419 | 0.8382 | 0.9567 |
+| ph2_cnn | ph2 | cnn | wbce | 100 | 0.9488 | 0.9027 | 0.9661 | 0.9711 | 0.9637 |
+| ph2_unet | ph2 | unet | wbce | 79 | 0.9444 | 0.8946 | 0.9637 | 0.9516 | 0.9695 |
+| ph2_unet_bce | ph2 | unet | bce | 93 | 0.9524 | 0.9091 | 0.9687 | 0.9653 | 0.9704 |
+| ph2_unet_focal | ph2 | unet | focal | 78 | 0.9362 | 0.8800 | 0.9581 | 0.9491 | 0.9624 |
+
+## Loss-function ablation (U-Net, only the loss changes)
+
+### DRIVE
+
+| loss | best epoch | val dice | test dice | test iou | test acc | test sens | test spec |
+|---|---|---|---|---|---|---|---|
+| bce | 96 | 0.7876 | 0.7905 | 0.6536 | 0.9456 | 0.7616 | 0.9742 |
+| focal | 90 | 0.7844 | 0.7901 | 0.6530 | 0.9411 | 0.8225 | 0.9595 |
+| wbce | 91 | 0.7347 | 0.7584 | 0.6109 | 0.9227 | 0.9004 | 0.9261 |
+
+### PH2
+
+| loss | best epoch | val dice | test dice | test iou | test acc | test sens | test spec |
+|---|---|---|---|---|---|---|---|
+| bce | 93 | 0.9582 | 0.9069 | 0.8297 | 0.9459 | 0.9195 | 0.9564 |
+| focal | 78 | 0.9443 | 0.8814 | 0.7879 | 0.9306 | 0.8994 | 0.9431 |
+| wbce | 79 | 0.9525 | 0.8924 | 0.8057 | 0.9390 | 0.8821 | 0.9619 |
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29980332: <seg_ablation> in cluster <dcc> Done
+
+Job <seg_ablation> was submitted from host <hpclogin1> by user <s263814> in cluster <dcc> at Tue Nov 10 17:42:13 2026
+Job was executed on host(s) <4*n-62-11-13>, in queue <gpuv100>, as user <s263814> in cluster <dcc> at Tue Nov 10 17:47:45 2026
+</zhome/27/d/233966> was used as the home directory.
+</zhome/27/d/233966/idcv3> was used as the working directory.
+Started at Tue Nov 10 17:47:45 2026
+Terminated at Tue Nov 10 17:54:47 2026
+Results reported at Tue Nov 10 17:54:47 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+# Loss ablation (U-Net only, the loss is the only change):
+#   DRIVE and PH2 with plain cross entropy (bce) and focal loss.
+#   The third loss (weighted CE) is the main U-Net run from run_drive.sh (drive_unet, ph2_unet).
+# Submit from the folder that contains all the .py files with:   bsub < run_ablation.sh
+#BSUB -J seg_ablation
+#BSUB -q gpuv100
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=12GB]"
+#BSUB -W 03:00
+#BSUB -o seg_ablation_%J.out
+#BSUB -e seg_ablation_%J.err
+
+# change this to the environment that has torch with CUDA
+source ~/venv_1/bin/activate
+
+# run in the folder the job was submitted from
+cd "$LSB_SUBCWD"
+nvidia-smi
+
+for f in seg_common.py drive_unet_bce.py drive_unet_focal.py ph2_unet_bce.py ph2_unet_focal.py summarize_results.py; do
+    [ -f "$f" ] || { echo "MISSING FILE: $f (upload it to $PWD)"; exit 1; }
+done
+mkdir -p results
+
+# optional quick test: remove the leading # to run only 3 epochs at low resolution
+# export EPOCHS=3 SIZE=128
+
+python -u drive_unet_bce.py   || echo "drive_unet_bce.py FAILED"
+python -u drive_unet_focal.py || echo "drive_unet_focal.py FAILED"
+python -u ph2_unet_bce.py     || echo "ph2_unet_bce.py FAILED"
+python -u ph2_unet_focal.py   || echo "ph2_unet_focal.py FAILED"
+
+# rebuilds results/summary.md and results/ablation_loss.md from every results/*/metrics.json
+# (the weighted-CE rows are filled in once the main job run_drive.sh has finished as well)
+python summarize_results.py
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   294.00 sec.
+    Max Memory :                                 1135 MB
+    Average Memory :                             889.40 MB
+    Total Requested Memory :                     49152.00 MB
+    Delta Memory :                               48017.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                10
+    Run time :                                   422 sec.
+    Turnaround time :                            754 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <seg_ablation_29980332.err> for stderr output of this job.
+
