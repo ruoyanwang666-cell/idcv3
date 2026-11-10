@@ -1,0 +1,128 @@
+{
+  "train": [
+    {
+      "id": 25,
+      "image": "driver/training/images/25_training.tif",
+      "label": "driver/training/1st_manual/25_manual1.gif",
+      "fov": "driver/training/mask/25_training_mask.gif"
+    },
+    {
+      "id": 26,
+      "image": "driver/training/images/26_training.tif",
+      "label": "driver/training/1st_manual/26_manual1.gif",
+      "fov": "driver/training/mask/26_training_mask.gif"
+    },
+    {
+      "id": 27,
+      "image": "driver/training/images/27_training.tif",
+      "label": "driver/training/1st_manual/27_manual1.gif",
+      "fov": "driver/training/mask/27_training_mask.gif"
+    },
+    {
+      "id": 30,
+      "image": "driver/training/images/30_training.tif",
+      "label": "driver/training/1st_manual/30_manual1.gif",
+      "fov": "driver/training/mask/30_training_mask.gif"
+    },
+    {
+      "id": 31,
+      "image": "driver/training/images/31_training.tif",
+      "label": "driver/training/1st_manual/31_manual1.gif",
+      "fov": "driver/training/mask/31_training_mask.gif"
+    },
+    {
+      "id": 33,
+      "image": "driver/training/images/33_training.tif",
+      "label": "driver/training/1st_manual/33_manual1.gif",
+      "fov": "driver/training/mask/33_training_mask.gif"
+    },
+    {
+      "id": 34,
+      "image": "driver/training/images/34_training.tif",
+      "label": "driver/training/1st_manual/34_manual1.gif",
+      "fov": "driver/training/mask/34_training_mask.gif"
+    },
+    {
+      "id": 35,
+      "image": "driver/training/images/35_training.tif",
+      "label": "driver/training/1st_manual/35_manual1.gif",
+      "fov": "driver/training/mask/35_training_mask.gif"
+    },
+    {
+      "id": 36,
+      "image": "driver/training/images/36_training.tif",
+      "label": "driver/training/1st_manual/36_manual1.gif",
+      "fov": "driver/training/mask/36_training_mask.gif"
+    },
+    {
+      "id": 38,
+      "image": "driver/training/images/38_training.tif",
+      "label": "driver/training/1st_manual/38_manual1.gif",
+      "fov": "driver/training/mask/38_training_mask.gif"
+    },
+    {
+      "id": 39,
+      "image": "driver/training/images/39_training.tif",
+      "label": "driver/training/1st_manual/39_manual1.gif",
+      "fov": "driver/training/mask/39_training_mask.gif"
+    },
+    {
+      "id": 40,
+      "image": "driver/training/images/40_training.tif",
+      "label": "driver/training/1st_manual/40_manual1.gif",
+      "fov": "driver/training/mask/40_training_mask.gif"
+    }
+  ],
+  "val": [
+    {
+      "id": 22,
+      "image": "driver/training/images/22_training.tif",
+      "label": "driver/training/1st_manual/22_manual1.gif",
+      "fov": "driver/training/mask/22_training_mask.gif"
+    },
+    {
+      "id": 23,
+      "image": "driver/training/images/23_training.tif",
+      "label": "driver/training/1st_manual/23_manual1.gif",
+      "fov": "driver/training/mask/23_training_mask.gif"
+    },
+    {
+      "id": 32,
+      "image": "driver/training/images/32_training.tif",
+      "label": "driver/training/1st_manual/32_manual1.gif",
+      "fov": "driver/training/mask/32_training_mask.gif"
+    },
+    {
+      "id": 37,
+      "image": "driver/training/images/37_training.tif",
+      "label": "driver/training/1st_manual/37_manual1.gif",
+      "fov": "driver/training/mask/37_training_mask.gif"
+    }
+  ],
+  "test": [
+    {
+      "id": 21,
+      "image": "driver/training/images/21_training.tif",
+      "label": "driver/training/1st_manual/21_manual1.gif",
+      "fov": "driver/training/mask/21_training_mask.gif"
+    },
+    {
+      "id": 24,
+      "image": "driver/training/images/24_training.tif",
+      "label": "driver/training/1st_manual/24_manual1.gif",
+      "fov": "driver/training/mask/24_training_mask.gif"
+    },
+    {
+      "id": 28,
+      "image": "driver/training/images/28_training.tif",
+      "label": "driver/training/1st_manual/28_manual1.gif",
+      "fov": "driver/training/mask/28_training_mask.gif"
+    },
+    {
+      "id": 29,
+      "image": "driver/training/images/29_training.tif",
+      "label": "driver/training/1st_manual/29_manual1.gif",
+      "fov": "driver/training/mask/29_training_mask.gif"
+    }
+  ]
+}
