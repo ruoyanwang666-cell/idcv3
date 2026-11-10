@@ -1,7 +1,8 @@
 #!/bin/sh
-# One job that runs all four experiments one after another:
-#   DRIVE: CNN, U-Net     PH2: CNN, U-Net
-# Submit with:  bsub < run_drive.sh
+# Main experiments, one job, one after another:
+#   shape check -> DRIVE: CNN, U-Net -> PH2: CNN, U-Net -> summary tables
+# Loss ablation (CE / focal) is a separate job: run_ablation.sh
+# Submit from the folder that contains all the .py files with:   bsub < run_drive.sh
 #BSUB -J seg_all
 #BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
@@ -18,6 +19,12 @@ source ~/venv_1/bin/activate
 # run in the folder the job was submitted from
 cd "$LSB_SUBCWD"
 nvidia-smi
+
+# stop early if a file was not uploaded
+for f in seg_common.py unet_shapes.py drive_cnn.py drive_unet.py ph2_cnn.py ph2_unet.py summarize_results.py; do
+    [ -f "$f" ] || { echo "MISSING FILE: $f (upload it to $PWD)"; exit 1; }
+done
+mkdir -p results
 
 # U-Net sketch + shape check first (fast); stops the job if a shape does not match
 python -u unet_shapes.py || exit 1
