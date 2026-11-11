@@ -16,7 +16,7 @@
 source ~/venv_1/bin/activate
 
 # run in the folder the job was submitted from
-cd "$LSB_SUBCWD"
+cd "${LSB_SUBCWD:-$PWD}"
 nvidia-smi
 
 for f in seg_common.py ph2_points.py summarize_weak.py; do
