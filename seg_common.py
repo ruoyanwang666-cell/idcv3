@@ -27,6 +27,7 @@ EPOCHS = int(os.environ.get("EPOCHS", 100))
 LR = float(os.environ.get("LR", 1e-3))
 SEED = int(os.environ.get("SEED", 42))
 RESULTS = Path(os.environ.get("RESULTS_DIR", "results"))
+EDGE_BAND = int(os.environ.get("EDGE_BAND", 5))     # Part 2, "edge" clicks: at most this many pixels from the object border
 
 device = ("cuda" if torch.cuda.is_available()
           else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -205,8 +206,66 @@ def augment(x, y, m):
     return x, y, m
 
 
+# ---------------- weak supervision: simulated point clicks (Part 2) ----------------
+def border_distance(region):
+    """For every pixel of `region` (N,1,H,W with 0/1): how many pixels it is away from the region border
+    (chessboard distance, by repeated 3x3 erosion). 0 outside the region."""
+    d = torch.zeros_like(region)
+    cur = region.clone()
+    for _ in range(max(region.shape[-2:])):
+        if cur.sum() == 0:
+            break
+        d += cur
+        cur = -F.max_pool2d(-cur, 3, stride=1, padding=1)        # erosion (image edge does not erode)
+    return d
+
+
+def make_clicks(Y, M, n_pos, n_neg, strategy="random", seed=SEED):
+    """Simulate an annotator: n_pos clicks inside the object and n_neg clicks on the background, per image.
+    Returns a 0/1 mask (N,1,H,W) of the clicked pixels; their labels are read from Y.
+      strategy "random": every pixel of the region is equally likely
+      strategy "center": probability grows with the distance to the region border (clicks avoid the edge)
+      strategy "edge":   only pixels within EDGE_BAND pixels of the object border, on the correct side
+                         (positive clicks just inside the object, negative clicks just outside it)
+    The clicks are drawn ONCE with a fixed seed, like an annotator who clicks each image once."""
+    assert strategy in ("random", "center", "edge"), strategy
+    g = torch.Generator().manual_seed(seed)
+    C = torch.zeros_like(Y)
+    for region, n in (((Y * M), n_pos), (((1 - Y) * M), n_neg)):
+        if n == 0:
+            continue
+        if strategy == "random":
+            w = region
+        else:
+            d = border_distance(region)
+            w = d if strategy == "center" else ((d >= 1) & (d <= EDGE_BAND)).float()
+        w = w.flatten(1)
+        for i in range(len(w)):
+            k = min(n, int((w[i] > 0).sum()))                    # tiny regions can hold fewer clicks
+            if k > 0:
+                idx = torch.multinomial(w[i], k, replacement=False, generator=g)
+                C[i].view(-1)[idx] = 1
+    return C
+
+
+def save_click_figure(X, Y, C, mean, std, path, n_show=6):
+    """Training images with the simulated clicks: green = positive, red = negative, white line = full mask."""
+    n_show = min(n_show, len(X))
+    fig, ax = plt.subplots(1, n_show, figsize=(3 * n_show, 3.2))
+    for r, a in enumerate(np.atleast_1d(ax)):
+        a.imshow((X[r] * std[0] + mean[0]).permute(1, 2, 0).clamp(0, 1))
+        a.contour(Y[r, 0], levels=[0.5], colors="white", linewidths=0.8)
+        for lab, col in ((1, "lime"), (0, "red")):
+            ys, xs = torch.nonzero(C[r, 0] * (Y[r, 0] == lab), as_tuple=True)
+            a.scatter(xs, ys, c=col, s=28, edgecolors="black", linewidths=0.6)
+        a.axis("off")
+    plt.tight_layout(); plt.savefig(path, dpi=130); plt.close(fig)
+
+
 # ---------------- one full experiment ----------------
-def run(name, model_name, loss_name, dataset="drive"):
+def run(name, model_name, loss_name, dataset="drive", clicks=None):
+    """clicks=None: full masks (Part 1). clicks=dict(pos=, neg=, strategy=): the training loss only sees
+    the simulated clicks (Part 2). Validation and test always use the full masks."""
     out = RESULTS / name
     out.mkdir(parents=True, exist_ok=True)
     random.seed(SEED); np.random.seed(SEED); torch.manual_seed(SEED)
@@ -226,7 +285,14 @@ def run(name, model_name, loss_name, dataset="drive"):
     std = Xtr.std(dim=(0, 2, 3), keepdim=True)
     Xtr, Xva, Xte = [(x - mean) / std for x in (Xtr, Xva, Xte)]
 
-    pos = (Ytr * Mtr).sum(); neg = ((1 - Ytr) * Mtr).sum()
+    Ctr = Mtr                                        # pixels that give a training signal (Part 1: all valid pixels)
+    if clicks is not None:                           # Part 2: only the simulated clicks
+        Ctr = make_clicks(Ytr, Mtr, clicks["pos"], clicks["neg"], clicks["strategy"])
+        n_p, n_n = (Ytr * Ctr).sum().item(), ((1 - Ytr) * Ctr).sum().item()
+        print(f"point supervision: strategy={clicks['strategy']} | {clicks['pos']} pos + {clicks['neg']} neg clicks per image"
+              f" | labelled pixels: {n_p:.0f} pos, {n_n:.0f} neg = {100 * (n_p + n_n) / Mtr.sum().item():.4f}% of all training pixels", flush=True)
+        save_click_figure(Xtr, Ytr, Ctr, mean, std, out / "clicks.png")
+    pos = (Ytr * Ctr).sum().clamp(min=1); neg = ((1 - Ytr) * Ctr).sum().clamp(min=1)
     pos_weight = (neg / pos).to(device)
     print("foreground fraction in FOV: %.3f | pos_weight: %.1f" % ((pos / (pos + neg)).item(), pos_weight.item()), flush=True)
 
@@ -245,7 +311,7 @@ def run(name, model_name, loss_name, dataset="drive"):
         perm = torch.randperm(len(Xtr))
         for i in range(0, len(Xtr), BATCH_SIZE):
             idx = perm[i:i+BATCH_SIZE]
-            x, y, m = augment(Xtr[idx], Ytr[idx], Mtr[idx])
+            x, y, m = augment(Xtr[idx], Ytr[idx], Ctr[idx])
             x, y, m = x.to(device), y.to(device), m.to(device)
             opt.zero_grad()
             loss = lossfn(model(x), y, m)
@@ -281,7 +347,7 @@ def run(name, model_name, loss_name, dataset="drive"):
     plt.tight_layout(); plt.savefig(out / "curves.png", dpi=150); plt.close(fig)
 
     # ---- final metrics with the best-val weights ----
-    final = {"name": name, "dataset": dataset, "model": model_name, "loss": loss_name, "best_epoch": best_ep, "size": size,
+    final = {"name": name, "dataset": dataset, "model": model_name, "loss": loss_name, "best_epoch": best_ep, "size": size, "clicks": clicks,
              "train": evaluate(model, lossfn, Xtr, Ytr, Mtr),
              "val": evaluate(model, lossfn, Xva, Yva, Mva),
              "test": evaluate(model, lossfn, Xte, Yte, Mte)}
