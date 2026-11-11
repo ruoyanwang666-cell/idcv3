@@ -3,7 +3,7 @@
 # Ablation over the number of clicks (centre-biased sampling). 8 runs, about 2 minutes each.
 # Submit from the folder that contains all the .py files with:   bsub < run_weak.sh
 #BSUB -J seg_weak
-#BSUB -q gpuv100
+#BSUB -q gpua10
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -n 4
 #BSUB -R "span[hosts=1]"
