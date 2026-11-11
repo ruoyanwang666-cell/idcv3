@@ -1,0 +1,275 @@
+Wed Nov 11 23:10:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.196.07             Driver Version: 580.196.07     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-16GB           On  |   00000000:37:00.0 Off |                    0 |
+| N/A   40C    P0             44W /  250W |    8426MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla V100-PCIE-16GB           On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   62C    P0            231W /  250W |   10708MiB /  16384MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         1724258      C   ...uicu/condaenv/CEBE/bin/python       8422MiB |
+|    1   N/A  N/A         1843814      C   .../envs/insegt3d/bin/python3.13       3426MiB |
+|    1   N/A  N/A         2104298      C   ...nda3/envs/geneflow/bin/python       7278MiB |
++-----------------------------------------------------------------------------------------+
+=== ph2_pts_random_p2_n2: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 2 pos + 2 neg clicks per image | labelled pixels: 280 pos, 280 neg = 0.0061% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4161 va 0.3950 te 0.4248 | acc tr 0.8314 va 0.8544 te 0.8376 | dice tr 0.749 va 0.800 te 0.698 | 1s
+ep   5 | loss tr 0.3848 va 0.3444 te 0.3690 | acc tr 0.8430 va 0.8758 te 0.8624 | dice tr 0.770 va 0.831 te 0.747 | 7s
+ep  10 | loss tr 0.3107 va 0.2644 te 0.2926 | acc tr 0.8632 va 0.8992 te 0.8858 | dice tr 0.797 va 0.860 te 0.788 | 16s
+ep  15 | loss tr 0.3702 va 0.3488 te 0.3430 | acc tr 0.8473 va 0.8640 te 0.8717 | dice tr 0.794 va 0.828 te 0.782 | 24s
+ep  20 | loss tr 0.4374 va 0.4037 te 0.4433 | acc tr 0.8438 va 0.8530 te 0.8356 | dice tr 0.784 va 0.807 te 0.732 | 30s
+ep  25 | loss tr 0.2439 va 0.2111 te 0.2782 | acc tr 0.9025 va 0.9180 te 0.8922 | dice tr 0.843 va 0.880 te 0.784 | 35s
+ep  30 | loss tr 0.2467 va 0.2232 te 0.2580 | acc tr 0.9068 va 0.9106 te 0.9000 | dice tr 0.857 va 0.873 te 0.811 | 39s
+ep  35 | loss tr 0.2118 va 0.2109 te 0.2513 | acc tr 0.9174 va 0.9157 te 0.9068 | dice tr 0.872 va 0.879 te 0.826 | 43s
+ep  40 | loss tr 0.2257 va 0.2332 te 0.2375 | acc tr 0.9055 va 0.9011 te 0.9044 | dice tr 0.858 va 0.861 te 0.831 | 50s
+ep  45 | loss tr 0.2236 va 0.2249 te 0.2427 | acc tr 0.9132 va 0.9097 te 0.9099 | dice tr 0.869 va 0.873 te 0.837 | 55s
+ep  50 | loss tr 0.2665 va 0.2812 te 0.2921 | acc tr 0.8893 va 0.8842 te 0.8800 | dice tr 0.841 va 0.843 te 0.804 | 61s
+ep  55 | loss tr 0.2336 va 0.2169 te 0.2507 | acc tr 0.9098 va 0.9147 te 0.9121 | dice tr 0.863 va 0.879 te 0.843 | 68s
+ep  60 | loss tr 0.2081 va 0.2175 te 0.2435 | acc tr 0.9214 va 0.9124 te 0.9053 | dice tr 0.876 va 0.872 te 0.825 | 78s
+ep  65 | loss tr 0.2583 va 0.2509 te 0.2559 | acc tr 0.9030 va 0.9062 te 0.9020 | dice tr 0.858 va 0.871 te 0.831 | 84s
+ep  70 | loss tr 0.2606 va 0.2664 te 0.2613 | acc tr 0.9008 va 0.8937 te 0.8937 | dice tr 0.847 va 0.848 te 0.813 | 89s
+ep  75 | loss tr 0.2272 va 0.2480 te 0.2370 | acc tr 0.9135 va 0.9042 te 0.9033 | dice tr 0.867 va 0.862 te 0.826 | 94s
+ep  80 | loss tr 0.2800 va 0.2966 te 0.3082 | acc tr 0.8923 va 0.8861 te 0.8772 | dice tr 0.843 va 0.842 te 0.788 | 98s
+ep  85 | loss tr 0.2107 va 0.2270 te 0.2210 | acc tr 0.9259 va 0.9166 te 0.9185 | dice tr 0.883 va 0.878 te 0.851 | 103s
+ep  90 | loss tr 0.2470 va 0.2562 te 0.2748 | acc tr 0.9117 va 0.9071 te 0.9021 | dice tr 0.868 va 0.869 te 0.829 | 110s
+ep  95 | loss tr 0.2490 va 0.2527 te 0.2605 | acc tr 0.9130 va 0.9099 te 0.9097 | dice tr 0.867 va 0.871 te 0.841 | 114s
+ep 100 | loss tr 0.2636 va 0.2536 te 0.2523 | acc tr 0.9113 va 0.9117 te 0.9153 | dice tr 0.863 va 0.874 te 0.849 | 121s
+best val dice 0.8914 at epoch 73 (weights restored)
+train dice 0.8662 | iou 0.7640 | acc 0.9096 | sens 0.9037 | spec 0.9124 | loss 0.2344
+val   dice 0.8914 | iou 0.8040 | acc 0.9209 | sens 0.9183 | spec 0.9224 | loss 0.2118
+test  dice 0.8467 | iou 0.7341 | acc 0.9121 | sens 0.8464 | spec 0.9385 | loss 0.2389
+saved to results/ph2_pts_random_p2_n2
+=== ph2_pts_random_p5_n5: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 5 pos + 5 neg clicks per image | labelled pixels: 700 pos, 700 neg = 0.0153% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4333 va 0.4147 te 0.4458 | acc tr 0.8192 va 0.8454 te 0.8310 | dice tr 0.744 va 0.796 te 0.701 | 1s
+ep   5 | loss tr 0.4078 va 0.3750 te 0.3510 | acc tr 0.8232 va 0.8458 te 0.8650 | dice tr 0.699 va 0.759 te 0.721 | 6s
+ep  10 | loss tr 0.2661 va 0.2834 te 0.2751 | acc tr 0.8985 va 0.8928 te 0.9016 | dice tr 0.841 va 0.846 te 0.821 | 10s
+ep  15 | loss tr 0.2833 va 0.2985 te 0.2921 | acc tr 0.8890 va 0.8812 te 0.8831 | dice tr 0.832 va 0.836 te 0.799 | 15s
+ep  20 | loss tr 0.3076 va 0.2942 te 0.3414 | acc tr 0.8822 va 0.8850 te 0.8695 | dice tr 0.833 va 0.848 te 0.785 | 19s
+ep  25 | loss tr 0.2363 va 0.2538 te 0.2520 | acc tr 0.9078 va 0.9023 te 0.9041 | dice tr 0.856 va 0.862 te 0.828 | 26s
+ep  30 | loss tr 0.2200 va 0.2314 te 0.2643 | acc tr 0.9192 va 0.9104 te 0.9016 | dice tr 0.872 va 0.869 te 0.821 | 31s
+ep  35 | loss tr 0.2284 va 0.2226 te 0.2491 | acc tr 0.9187 va 0.9173 te 0.9130 | dice tr 0.875 va 0.883 te 0.845 | 36s
+ep  40 | loss tr 0.2187 va 0.2254 te 0.2241 | acc tr 0.9203 va 0.9196 te 0.9180 | dice tr 0.876 va 0.886 te 0.850 | 45s
+ep  45 | loss tr 0.1988 va 0.2070 te 0.2341 | acc tr 0.9223 va 0.9187 te 0.9125 | dice tr 0.880 va 0.885 te 0.841 | 55s
+ep  50 | loss tr 0.2876 va 0.2868 te 0.2974 | acc tr 0.9015 va 0.8986 te 0.8962 | dice tr 0.859 va 0.866 te 0.830 | 61s
+ep  55 | loss tr 0.2068 va 0.2108 te 0.2478 | acc tr 0.9242 va 0.9206 te 0.9135 | dice tr 0.878 va 0.882 te 0.837 | 65s
+ep  60 | loss tr 0.1837 va 0.1828 te 0.2297 | acc tr 0.9333 va 0.9325 te 0.9196 | dice tr 0.894 va 0.901 te 0.851 | 70s
+ep  65 | loss tr 0.2197 va 0.2250 te 0.2395 | acc tr 0.9187 va 0.9156 te 0.9100 | dice tr 0.866 va 0.872 te 0.830 | 74s
+ep  70 | loss tr 0.4229 va 0.3991 te 0.4366 | acc tr 0.8567 va 0.8616 te 0.8518 | dice tr 0.808 va 0.826 te 0.776 | 82s
+ep  75 | loss tr 0.6381 va 0.6157 te 0.6430 | acc tr 0.8098 va 0.8103 te 0.8058 | dice tr 0.762 va 0.778 te 0.730 | 86s
+ep  80 | loss tr 0.2742 va 0.2984 te 0.2977 | acc tr 0.9071 va 0.8972 te 0.8984 | dice tr 0.863 va 0.861 te 0.832 | 91s
+ep  85 | loss tr 0.2251 va 0.2298 te 0.2549 | acc tr 0.9261 va 0.9239 te 0.9232 | dice tr 0.879 va 0.886 te 0.857 | 97s
+ep  90 | loss tr 0.1883 va 0.2157 te 0.2310 | acc tr 0.9336 va 0.9228 te 0.9199 | dice tr 0.897 va 0.890 te 0.858 | 106s
+ep  95 | loss tr 0.1728 va 0.1979 te 0.2122 | acc tr 0.9363 va 0.9228 te 0.9237 | dice tr 0.897 va 0.885 te 0.857 | 114s
+ep 100 | loss tr 0.1737 va 0.1953 te 0.2222 | acc tr 0.9391 va 0.9322 te 0.9254 | dice tr 0.904 va 0.902 te 0.865 | 119s
+best val dice 0.9015 at epoch 100 (weights restored)
+train dice 0.9044 | iou 0.8255 | acc 0.9391 | sens 0.8907 | spec 0.9622 | loss 0.1737
+val   dice 0.9015 | iou 0.8207 | acc 0.9322 | sens 0.8785 | spec 0.9616 | loss 0.1953
+test  dice 0.8646 | iou 0.7614 | acc 0.9254 | sens 0.8298 | spec 0.9639 | loss 0.2222
+saved to results/ph2_pts_random_p5_n5
+=== ph2_pts_random_p10_n10: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 10 pos + 10 neg clicks per image | labelled pixels: 1400 pos, 1400 neg = 0.0305% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4170 va 0.3996 te 0.4361 | acc tr 0.8307 va 0.8482 te 0.8310 | dice tr 0.750 va 0.793 te 0.689 | 1s
+ep   5 | loss tr 0.6544 va 0.5859 te 0.6824 | acc tr 0.7890 va 0.7992 te 0.7642 | dice tr 0.720 va 0.748 te 0.644 | 7s
+ep  10 | loss tr 0.2416 va 0.2363 te 0.2403 | acc tr 0.9085 va 0.9103 te 0.9097 | dice tr 0.861 va 0.874 te 0.843 | 13s
+ep  15 | loss tr 0.3411 va 0.3147 te 0.3449 | acc tr 0.8882 va 0.8949 te 0.8757 | dice tr 0.840 va 0.858 te 0.796 | 19s
+ep  20 | loss tr 0.2307 va 0.2299 te 0.2751 | acc tr 0.9180 va 0.9177 te 0.8968 | dice tr 0.878 va 0.886 te 0.822 | 26s
+ep  25 | loss tr 0.2241 va 0.2201 te 0.2039 | acc tr 0.9213 va 0.9248 te 0.9236 | dice tr 0.880 va 0.894 te 0.868 | 36s
+ep  30 | loss tr 0.1687 va 0.1797 te 0.2023 | acc tr 0.9402 va 0.9324 te 0.9239 | dice tr 0.905 va 0.901 te 0.863 | 42s
+ep  35 | loss tr 0.1848 va 0.1841 te 0.1986 | acc tr 0.9357 va 0.9344 te 0.9252 | dice tr 0.897 va 0.903 te 0.862 | 47s
+ep  40 | loss tr 0.1793 va 0.1836 te 0.1916 | acc tr 0.9361 va 0.9385 te 0.9274 | dice tr 0.901 va 0.912 te 0.870 | 51s
+ep  45 | loss tr 0.1695 va 0.1813 te 0.1831 | acc tr 0.9359 va 0.9324 te 0.9299 | dice tr 0.900 va 0.902 te 0.874 | 55s
+ep  50 | loss tr 0.1965 va 0.2003 te 0.2307 | acc tr 0.9296 va 0.9278 te 0.9135 | dice tr 0.895 va 0.901 te 0.851 | 60s
+ep  55 | loss tr 0.1807 va 0.1866 te 0.1873 | acc tr 0.9366 va 0.9374 te 0.9262 | dice tr 0.898 va 0.908 te 0.864 | 68s
+ep  60 | loss tr 0.1661 va 0.1748 te 0.1917 | acc tr 0.9409 va 0.9371 te 0.9268 | dice tr 0.910 va 0.911 te 0.871 | 74s
+ep  65 | loss tr 0.1600 va 0.1623 te 0.1858 | acc tr 0.9402 va 0.9447 te 0.9265 | dice tr 0.907 va 0.920 te 0.869 | 81s
+ep  70 | loss tr 0.1647 va 0.1739 te 0.2026 | acc tr 0.9408 va 0.9386 te 0.9217 | dice tr 0.910 va 0.914 te 0.860 | 90s
+ep  75 | loss tr 0.1757 va 0.1917 te 0.2036 | acc tr 0.9386 va 0.9329 te 0.9236 | dice tr 0.907 va 0.907 te 0.865 | 96s
+ep  80 | loss tr 0.2368 va 0.2467 te 0.2459 | acc tr 0.9153 va 0.9093 te 0.9138 | dice tr 0.875 va 0.877 te 0.857 | 101s
+ep  85 | loss tr 0.1566 va 0.1490 te 0.2032 | acc tr 0.9424 va 0.9456 te 0.9284 | dice tr 0.912 va 0.923 te 0.874 | 106s
+ep  90 | loss tr 0.1904 va 0.1997 te 0.2252 | acc tr 0.9342 va 0.9308 te 0.9227 | dice tr 0.902 va 0.904 te 0.870 | 110s
+ep  95 | loss tr 0.1625 va 0.1749 te 0.1990 | acc tr 0.9412 va 0.9394 te 0.9300 | dice tr 0.911 va 0.916 te 0.880 | 116s
+ep 100 | loss tr 0.1553 va 0.1807 te 0.2290 | acc tr 0.9465 va 0.9399 te 0.9256 | dice tr 0.916 va 0.913 te 0.866 | 122s
+best val dice 0.9270 at epoch 87 (weights restored)
+train dice 0.9123 | iou 0.8388 | acc 0.9445 | sens 0.8916 | spec 0.9698 | loss 0.1570
+val   dice 0.9270 | iou 0.8640 | acc 0.9496 | sens 0.9061 | spec 0.9734 | loss 0.1490
+test  dice 0.8633 | iou 0.7595 | acc 0.9260 | sens 0.8147 | spec 0.9708 | loss 0.2087
+saved to results/ph2_pts_random_p10_n10
+=== ph2_pts_random_p20_n20: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 20 pos + 20 neg clicks per image | labelled pixels: 2800 pos, 2800 neg = 0.0610% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4282 va 0.3949 te 0.4446 | acc tr 0.8113 va 0.8468 te 0.8187 | dice tr 0.732 va 0.796 te 0.677 | 3s
+ep   5 | loss tr 0.3170 va 0.3254 te 0.3492 | acc tr 0.8853 va 0.8784 te 0.8743 | dice tr 0.835 va 0.842 te 0.784 | 10s
+ep  10 | loss tr 0.2336 va 0.2457 te 0.2533 | acc tr 0.9205 va 0.9098 te 0.9073 | dice tr 0.881 va 0.876 te 0.839 | 17s
+ep  15 | loss tr 0.3875 va 0.3643 te 0.3675 | acc tr 0.8502 va 0.8668 te 0.8707 | dice tr 0.804 va 0.835 te 0.791 | 21s
+ep  20 | loss tr 0.2346 va 0.2385 te 0.2651 | acc tr 0.9166 va 0.9114 te 0.9058 | dice tr 0.878 va 0.879 te 0.841 | 26s
+ep  25 | loss tr 0.1643 va 0.1786 te 0.1810 | acc tr 0.9385 va 0.9306 te 0.9332 | dice tr 0.905 va 0.901 te 0.880 | 30s
+ep  30 | loss tr 0.1527 va 0.1584 te 0.2002 | acc tr 0.9444 va 0.9408 te 0.9284 | dice tr 0.914 va 0.915 te 0.873 | 34s
+ep  35 | loss tr 0.1739 va 0.1885 te 0.1995 | acc tr 0.9370 va 0.9299 te 0.9288 | dice tr 0.898 va 0.896 te 0.869 | 42s
+ep  40 | loss tr 0.1659 va 0.1926 te 0.1777 | acc tr 0.9398 va 0.9317 te 0.9350 | dice tr 0.905 va 0.900 te 0.882 | 50s
+ep  45 | loss tr 0.1513 va 0.1555 te 0.1875 | acc tr 0.9428 va 0.9427 te 0.9298 | dice tr 0.913 va 0.919 te 0.877 | 60s
+ep  50 | loss tr 0.1423 va 0.1565 te 0.1987 | acc tr 0.9479 va 0.9431 te 0.9275 | dice tr 0.918 va 0.918 te 0.867 | 67s
+ep  55 | loss tr 0.1445 va 0.1524 te 0.1776 | acc tr 0.9450 va 0.9430 te 0.9347 | dice tr 0.915 va 0.919 te 0.885 | 72s
+ep  60 | loss tr 0.1469 va 0.1716 te 0.1666 | acc tr 0.9469 va 0.9369 te 0.9399 | dice tr 0.919 va 0.912 te 0.896 | 76s
+ep  65 | loss tr 0.1367 va 0.1735 te 0.1607 | acc tr 0.9502 va 0.9422 te 0.9416 | dice tr 0.923 va 0.918 te 0.898 | 81s
+ep  70 | loss tr 0.1411 va 0.1581 te 0.1653 | acc tr 0.9498 va 0.9457 te 0.9414 | dice tr 0.924 va 0.924 te 0.899 | 87s
+ep  75 | loss tr 0.1336 va 0.1496 te 0.1687 | acc tr 0.9530 va 0.9463 te 0.9384 | dice tr 0.927 va 0.923 te 0.890 | 95s
+ep  80 | loss tr 0.1427 va 0.1690 te 0.1772 | acc tr 0.9479 va 0.9377 te 0.9323 | dice tr 0.921 va 0.913 te 0.884 | 105s
+ep  85 | loss tr 0.1671 va 0.1850 te 0.2063 | acc tr 0.9431 va 0.9384 te 0.9312 | dice tr 0.914 va 0.914 te 0.882 | 112s
+ep  90 | loss tr 0.1427 va 0.1784 te 0.1972 | acc tr 0.9499 va 0.9423 te 0.9352 | dice tr 0.923 va 0.918 te 0.888 | 118s
+ep  95 | loss tr 0.1218 va 0.1692 te 0.1818 | acc tr 0.9561 va 0.9413 te 0.9441 | dice tr 0.932 va 0.915 te 0.902 | 122s
+ep 100 | loss tr 0.1135 va 0.1427 te 0.1730 | acc tr 0.9588 va 0.9486 te 0.9417 | dice tr 0.936 va 0.927 te 0.897 | 126s
+best val dice 0.9303 at epoch 87 (weights restored)
+train dice 0.9323 | iou 0.8731 | acc 0.9556 | sens 0.9445 | spec 0.9609 | loss 0.1225
+val   dice 0.9303 | iou 0.8697 | acc 0.9503 | sens 0.9389 | spec 0.9566 | loss 0.1431
+test  dice 0.8951 | iou 0.8102 | acc 0.9398 | sens 0.8964 | spec 0.9572 | loss 0.1666
+saved to results/ph2_pts_random_p20_n20
+=== ph2_pts_random_p50_n50: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 50 pos + 50 neg clicks per image | labelled pixels: 7000 pos, 7000 neg = 0.1526% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4032 va 0.3842 te 0.4193 | acc tr 0.8355 va 0.8484 te 0.8343 | dice tr 0.760 va 0.797 te 0.702 | 1s
+ep   5 | loss tr 0.3006 va 0.3058 te 0.3169 | acc tr 0.8852 va 0.8794 te 0.8697 | dice tr 0.834 va 0.838 te 0.786 | 7s
+ep  10 | loss tr 0.2587 va 0.2477 te 0.2931 | acc tr 0.9123 va 0.9089 te 0.8978 | dice tr 0.874 va 0.878 te 0.832 | 12s
+ep  15 | loss tr 0.3061 va 0.2775 te 0.3201 | acc tr 0.8834 va 0.8931 te 0.8873 | dice tr 0.841 va 0.863 te 0.816 | 22s
+ep  20 | loss tr 0.2027 va 0.1911 te 0.2416 | acc tr 0.9285 va 0.9306 te 0.9110 | dice tr 0.894 va 0.904 te 0.851 | 29s
+ep  25 | loss tr 0.1622 va 0.1600 te 0.1845 | acc tr 0.9333 va 0.9347 te 0.9284 | dice tr 0.900 va 0.910 te 0.876 | 35s
+ep  30 | loss tr 0.1285 va 0.1416 te 0.1816 | acc tr 0.9518 va 0.9453 te 0.9305 | dice tr 0.925 va 0.922 te 0.878 | 39s
+ep  35 | loss tr 0.1842 va 0.1858 te 0.2214 | acc tr 0.9241 va 0.9264 te 0.9188 | dice tr 0.886 va 0.898 te 0.859 | 43s
+ep  40 | loss tr 0.1281 va 0.1346 te 0.1763 | acc tr 0.9507 va 0.9511 te 0.9310 | dice tr 0.924 va 0.931 te 0.876 | 48s
+ep  45 | loss tr 0.1241 va 0.1339 te 0.1950 | acc tr 0.9529 va 0.9514 te 0.9307 | dice tr 0.927 va 0.930 te 0.876 | 54s
+ep  50 | loss tr 0.1278 va 0.1271 te 0.2138 | acc tr 0.9502 va 0.9513 te 0.9204 | dice tr 0.924 va 0.932 te 0.861 | 61s
+ep  55 | loss tr 0.1119 va 0.1153 te 0.1718 | acc tr 0.9565 va 0.9569 te 0.9354 | dice tr 0.932 va 0.938 te 0.886 | 68s
+ep  60 | loss tr 0.1201 va 0.1309 te 0.1831 | acc tr 0.9551 va 0.9512 te 0.9338 | dice tr 0.931 va 0.931 te 0.883 | 78s
+ep  65 | loss tr 0.1014 va 0.1244 te 0.1759 | acc tr 0.9602 va 0.9547 te 0.9385 | dice tr 0.938 va 0.935 te 0.890 | 84s
+ep  70 | loss tr 0.1059 va 0.1439 te 0.1637 | acc tr 0.9617 va 0.9457 te 0.9352 | dice tr 0.941 va 0.924 te 0.887 | 90s
+ep  75 | loss tr 0.1065 va 0.1363 te 0.1930 | acc tr 0.9603 va 0.9474 te 0.9333 | dice tr 0.938 va 0.925 te 0.880 | 94s
+ep  80 | loss tr 0.1143 va 0.1224 te 0.1832 | acc tr 0.9558 va 0.9531 te 0.9338 | dice tr 0.934 va 0.935 te 0.887 | 98s
+ep  85 | loss tr 0.0985 va 0.1185 te 0.1743 | acc tr 0.9629 va 0.9562 te 0.9436 | dice tr 0.942 va 0.937 te 0.899 | 103s
+ep  90 | loss tr 0.1046 va 0.1165 te 0.1804 | acc tr 0.9593 va 0.9568 te 0.9373 | dice tr 0.939 va 0.941 te 0.895 | 110s
+ep  95 | loss tr 0.0929 va 0.1100 te 0.1958 | acc tr 0.9636 va 0.9590 te 0.9412 | dice tr 0.945 va 0.942 te 0.900 | 117s
+ep 100 | loss tr 0.0929 va 0.1004 te 0.1688 | acc tr 0.9627 va 0.9624 te 0.9424 | dice tr 0.944 va 0.948 te 0.902 | 121s
+best val dice 0.9529 at epoch 87 (weights restored)
+train dice 0.9426 | iou 0.8914 | acc 0.9628 | sens 0.9437 | spec 0.9719 | loss 0.0941
+val   dice 0.9529 | iou 0.9100 | acc 0.9669 | sens 0.9484 | spec 0.9769 | loss 0.0928
+test  dice 0.8956 | iou 0.8109 | acc 0.9413 | sens 0.8773 | spec 0.9671 | loss 0.1730
+saved to results/ph2_pts_random_p50_n50
+=== ph2_pts_random_p100_n100: dataset=ph2 model=unet loss=bce device=cuda size=256 epochs=100 ===
+data folder: /dtu/datasets1/02516/PH2_Dataset_images
+split sizes: 140/30/30 | test ids: ['IMD010', 'IMD013', 'IMD014', 'IMD031', 'IMD032', 'IMD036', 'IMD038', 'IMD045', 'IMD085', 'IMD101', 'IMD103', 'IMD105', 'IMD108', 'IMD120', 'IMD138', 'IMD204', 'IMD206', 'IMD226', 'IMD312', 'IMD365', 'IMD370', 'IMD380', 'IMD383', 'IMD394', 'IMD397', 'IMD405', 'IMD425', 'IMD426', 'IMD429', 'IMD435']
+point supervision: strategy=random | 100 pos + 100 neg clicks per image | labelled pixels: 14000 pos, 14000 neg = 0.3052% of all training pixels
+foreground fraction in FOV: 0.500 | pos_weight: 1.0
+parameters: 1944049
+ep   1 | loss tr 0.4051 va 0.3807 te 0.4155 | acc tr 0.8280 va 0.8492 te 0.8328 | dice tr 0.753 va 0.800 te 0.701 | 2s
+ep   5 | loss tr 0.3059 va 0.2986 te 0.3700 | acc tr 0.8918 va 0.8939 te 0.8647 | dice tr 0.846 va 0.859 te 0.779 | 6s
+ep  10 | loss tr 0.1578 va 0.1516 te 0.2234 | acc tr 0.9427 va 0.9436 te 0.9189 | dice tr 0.911 va 0.919 te 0.853 | 10s
+ep  15 | loss tr 0.2402 va 0.2184 te 0.2651 | acc tr 0.9058 va 0.9135 te 0.9012 | dice tr 0.867 va 0.887 te 0.837 | 14s
+ep  20 | loss tr 0.1922 va 0.1813 te 0.2256 | acc tr 0.9303 va 0.9322 te 0.9153 | dice tr 0.897 va 0.907 te 0.855 | 21s
+ep  25 | loss tr 0.1382 va 0.1456 te 0.2067 | acc tr 0.9477 va 0.9446 te 0.9209 | dice tr 0.919 va 0.922 te 0.860 | 26s
+ep  30 | loss tr 0.1208 va 0.1393 te 0.1815 | acc tr 0.9536 va 0.9449 te 0.9303 | dice tr 0.928 va 0.921 te 0.876 | 31s
+ep  35 | loss tr 0.1389 va 0.1321 te 0.2063 | acc tr 0.9462 va 0.9497 te 0.9249 | dice tr 0.916 va 0.928 te 0.867 | 38s
+ep  40 | loss tr 0.1407 va 0.1534 te 0.1769 | acc tr 0.9473 va 0.9423 te 0.9321 | dice tr 0.917 va 0.917 te 0.880 | 47s
+ep  45 | loss tr 0.1275 va 0.1310 te 0.2149 | acc tr 0.9506 va 0.9540 te 0.9240 | dice tr 0.925 va 0.935 te 0.867 | 55s
+ep  50 | loss tr 0.1115 va 0.1230 te 0.1944 | acc tr 0.9555 va 0.9525 te 0.9279 | dice tr 0.931 va 0.932 te 0.872 | 60s
+ep  55 | loss tr 0.1047 va 0.1188 te 0.1837 | acc tr 0.9582 va 0.9560 te 0.9310 | dice tr 0.935 va 0.937 te 0.878 | 65s
+ep  60 | loss tr 0.1327 va 0.1687 te 0.1886 | acc tr 0.9501 va 0.9369 te 0.9284 | dice tr 0.925 va 0.913 te 0.877 | 69s
+ep  65 | loss tr 0.0972 va 0.1238 te 0.1576 | acc tr 0.9623 va 0.9528 te 0.9391 | dice tr 0.942 va 0.932 te 0.893 | 74s
+ep  70 | loss tr 0.1024 va 0.1367 te 0.1641 | acc tr 0.9614 va 0.9475 te 0.9382 | dice tr 0.941 va 0.926 te 0.891 | 79s
+ep  75 | loss tr 0.1083 va 0.1306 te 0.1573 | acc tr 0.9603 va 0.9500 te 0.9413 | dice tr 0.940 va 0.931 te 0.900 | 85s
+ep  80 | loss tr 0.0975 va 0.1184 te 0.1586 | acc tr 0.9621 va 0.9522 te 0.9383 | dice tr 0.942 va 0.933 te 0.893 | 92s
+ep  85 | loss tr 0.0891 va 0.1101 te 0.1792 | acc tr 0.9652 va 0.9599 te 0.9414 | dice tr 0.946 va 0.942 te 0.895 | 100s
+ep  90 | loss tr 0.1050 va 0.1205 te 0.1753 | acc tr 0.9596 va 0.9562 te 0.9355 | dice tr 0.937 va 0.937 te 0.887 | 109s
+ep  95 | loss tr 0.0835 va 0.1135 te 0.1904 | acc tr 0.9664 va 0.9584 te 0.9400 | dice tr 0.948 va 0.940 te 0.894 | 115s
+ep 100 | loss tr 0.0833 va 0.0971 te 0.1734 | acc tr 0.9668 va 0.9623 te 0.9424 | dice tr 0.949 va 0.947 te 0.901 | 120s
+best val dice 0.9482 at epoch 93 (weights restored)
+train dice 0.9423 | iou 0.8909 | acc 0.9617 | sens 0.9671 | spec 0.9590 | loss 0.0946
+val   dice 0.9482 | iou 0.9015 | acc 0.9629 | sens 0.9608 | spec 0.9640 | loss 0.0979
+test  dice 0.8961 | iou 0.8117 | acc 0.9393 | sens 0.9123 | spec 0.9502 | loss 0.1670
+saved to results/ph2_pts_random_p100_n100
+## Point supervision on PH2 (U-Net, cross entropy on clicked pixels only)
+
+| strategy | pos clicks | neg clicks | best epoch | val dice | test dice | test iou | test acc | test sens | test spec | % of full-mask test dice |
+|---|---|---|---|---|---|---|---|---|---|---|
+| full masks (ph2_unet_bce) | all | all | 93 | 0.9582 | 0.9069 | 0.8297 | 0.9459 | 0.9195 | 0.9564 | 100.0 |
+| center | 2 | 2 | 85 | 0.8858 | 0.8346 | 0.7161 | 0.9126 | 0.7690 | 0.9703 | 92.0 |
+| center | 5 | 5 | 89 | 0.9045 | 0.8577 | 0.7508 | 0.9195 | 0.8454 | 0.9494 | 94.6 |
+| center | 10 | 10 | 83 | 0.9098 | 0.8626 | 0.7584 | 0.9218 | 0.8562 | 0.9481 | 95.1 |
+| center | 5 | 20 | 91 | 0.9076 | 0.8664 | 0.7643 | 0.9268 | 0.8275 | 0.9668 | 95.5 |
+| center | 20 | 5 | 91 | 0.8929 | 0.8583 | 0.7518 | 0.9150 | 0.8984 | 0.9216 | 94.6 |
+| center | 20 | 20 | 86 | 0.9230 | 0.8731 | 0.7748 | 0.9252 | 0.8972 | 0.9365 | 96.3 |
+| center | 50 | 50 | 96 | 0.9344 | 0.8805 | 0.7864 | 0.9294 | 0.9062 | 0.9388 | 97.1 |
+| center | 100 | 100 | 96 | 0.9398 | 0.8910 | 0.8034 | 0.9368 | 0.9013 | 0.9510 | 98.2 |
+| random | 2 | 2 | 73 | 0.8914 | 0.8467 | 0.7341 | 0.9121 | 0.8464 | 0.9385 | 93.4 |
+| random | 5 | 5 | 100 | 0.9015 | 0.8646 | 0.7614 | 0.9254 | 0.8298 | 0.9639 | 95.3 |
+| random | 10 | 10 | 87 | 0.9270 | 0.8633 | 0.7595 | 0.9260 | 0.8147 | 0.9708 | 95.2 |
+| random | 20 | 20 | 87 | 0.9303 | 0.8951 | 0.8102 | 0.9398 | 0.8964 | 0.9572 | 98.7 |
+| random | 50 | 50 | 87 | 0.9529 | 0.8956 | 0.8109 | 0.9413 | 0.8773 | 0.9671 | 98.7 |
+| random | 100 | 100 | 93 | 0.9482 | 0.8961 | 0.8117 | 0.9393 | 0.9123 | 0.9502 | 98.8 |
+
+## Point supervision vs full supervision (PH2 test set, U-Net, cross entropy)
+
+Full supervision (all pixels labelled): test Dice 0.9069, sensitivity 0.9195, specificity 0.9564.
+
+| strategy | clicks per image (pos + neg) | labelled pixels per image (%) | test dice | difference to full (Dice points) | % of full | test sens | test spec |
+|---|---|---|---|---|---|---|---|
+| center | 2 + 2 | 0.006 | 0.8346 | -7.2 | 92.0 | 0.7690 | 0.9703 |
+| center | 5 + 5 | 0.015 | 0.8577 | -4.9 | 94.6 | 0.8454 | 0.9494 |
+| center | 10 + 10 | 0.031 | 0.8626 | -4.4 | 95.1 | 0.8562 | 0.9481 |
+| center | 5 + 20 | 0.038 | 0.8664 | -4.0 | 95.5 | 0.8275 | 0.9668 |
+| center | 20 + 5 | 0.038 | 0.8583 | -4.9 | 94.6 | 0.8984 | 0.9216 |
+| center | 20 + 20 | 0.061 | 0.8731 | -3.4 | 96.3 | 0.8972 | 0.9365 |
+| center | 50 + 50 | 0.153 | 0.8805 | -2.6 | 97.1 | 0.9062 | 0.9388 |
+| center | 100 + 100 | 0.305 | 0.8910 | -1.6 | 98.2 | 0.9013 | 0.9510 |
+| random | 2 + 2 | 0.006 | 0.8467 | -6.0 | 93.4 | 0.8464 | 0.9385 |
+| random | 5 + 5 | 0.015 | 0.8646 | -4.2 | 95.3 | 0.8298 | 0.9639 |
+| random | 10 + 10 | 0.031 | 0.8633 | -4.4 | 95.2 | 0.8147 | 0.9708 |
+| random | 20 + 20 | 0.061 | 0.8951 | -1.2 | 98.7 | 0.8964 | 0.9572 |
+| random | 50 + 50 | 0.153 | 0.8956 | -1.1 | 98.7 | 0.8773 | 0.9671 |
+| random | 100 + 100 | 0.305 | 0.8961 | -1.1 | 98.8 | 0.9123 | 0.9502 |
+
+- within 1 Dice point(s) of full supervision: not reached by any run
+- within 2 Dice point(s) of full supervision: from 20 + 20 clicks (random, test Dice 0.8951)
+- within 3 Dice point(s) of full supervision: from 20 + 20 clicks (random, test Dice 0.8951)
+- within 5 Dice point(s) of full supervision: from 5 + 5 clicks (center, test Dice 0.8577)
+
+## Sampling strategies (PH2 test set, same number of positive and negative clicks)
+
+| clicks per class | center: dice | center: sens | center: spec | random: dice | random: sens | random: spec |
+|---|---|---|---|---|---|---|
+| 2 | 0.8346 | 0.7690 | 0.9703 | 0.8467 | 0.8464 | 0.9385 |
+| 5 | 0.8577 | 0.8454 | 0.9494 | 0.8646 | 0.8298 | 0.9639 |
+| 10 | 0.8626 | 0.8562 | 0.9481 | 0.8633 | 0.8147 | 0.9708 |
+| 20 | 0.8731 | 0.8972 | 0.9365 | 0.8951 | 0.8964 | 0.9572 |
+| 50 | 0.8805 | 0.9062 | 0.9388 | 0.8956 | 0.8773 | 0.9671 |
+| 100 | 0.8910 | 0.9013 | 0.9510 | 0.8961 | 0.9123 | 0.9502 |
+
